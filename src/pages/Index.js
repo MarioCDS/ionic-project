@@ -7,8 +7,13 @@ import {
 } from "@ionic/react";
 import ExploreContainer from "../components/ExploreContainer";
 import "./Index.css";
+import {db} from "../firebase-config";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    // console.log(db)
+  })
   return (
     <IonPage>
       <IonHeader>
