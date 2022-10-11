@@ -36,42 +36,46 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
+import AuthProvider from "./contexts/AuthContext";
+
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/current">
-            <Current />
-          </Route>
-          <Route exact path="/search">
-            <Search />
-          </Route>
-          <Route path="/index">
-            <Index />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/current" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="current" href="/current">
-            <IonIcon icon={triangle} />
-            <IonLabel>Current</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="search" href="/search">
-            <IonIcon icon={ellipse} />
-            <IonLabel>Search</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="index" href="/index">
-            <IonIcon icon={square} />
-            <IonLabel>Index</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+    <AuthProvider>
+      <IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route exact path="/current">
+              <Current />
+            </Route>
+            <Route exact path="/search">
+              <Search />
+            </Route>
+            <Route path="/index">
+              <Index />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/current" />
+            </Route>
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="current" href="/current">
+              <IonIcon icon={triangle} />
+              <IonLabel>Current</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="search" href="/search">
+              <IonIcon icon={ellipse} />
+              <IonLabel>Search</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="index" href="/index">
+              <IonIcon icon={square} />
+              <IonLabel>Index</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
+    </AuthProvider>
   </IonApp>
 );
 

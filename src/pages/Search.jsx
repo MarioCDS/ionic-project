@@ -1,38 +1,41 @@
 import {
   IonContent,
+  IonFooter,
   IonHeader,
+  IonLabel,
   IonPage,
   IonTitle,
   IonToolbar,
-  IonFooter,
-  IonLabel,
 } from "@ionic/react";
 import ExploreContainer from "../components/ExploreContainer";
-import "./Current.css";
+import Login from "../components/Login";
+import "./Search.css";
 
-const Current = () => {
+const Search = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Current</IonTitle>
+          <IonTitle>Search</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Current</IonTitle>
+            <IonTitle size="large">Search</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Current" />
+        <ExploreContainer name="Search page" />
       </IonContent>
       <IonFooter>
         <IonToolbar>
-          <IonLabel>Footer</IonLabel>
+          <IonLabel>
+            <Login />
+          </IonLabel>
         </IonToolbar>
       </IonFooter>
     </IonPage>
   );
 };
 
-export default Current;
+export default Search;

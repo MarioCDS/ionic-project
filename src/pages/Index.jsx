@@ -1,6 +1,8 @@
 import {
   IonContent,
+  IonFooter,
   IonHeader,
+  IonLabel,
   IonPage,
   IonTitle,
   IonToolbar,
@@ -9,6 +11,7 @@ import ExploreContainer from "../components/ExploreContainer";
 import "./Index.css";
 import { db } from "../firebase-config";
 import { useEffect } from "react";
+import Login from "../components/Login";
 
 const Index = () => {
   useEffect(() => {
@@ -29,6 +32,13 @@ const Index = () => {
         </IonHeader>
         <ExploreContainer name="Index page" />
       </IonContent>
+      <IonFooter>
+        <IonToolbar>
+          <IonLabel>
+            <Login />
+          </IonLabel>
+        </IonToolbar>
+      </IonFooter>
     </IonPage>
   );
 };
