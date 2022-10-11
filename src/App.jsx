@@ -37,13 +37,25 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 
 import AuthProvider from "./contexts/AuthContext";
+import Login from "./components/Login";
 
 setupIonicReact();
 
-const App: React.FC = () => (
+const App = () => (
   <IonApp>
     <AuthProvider>
       <IonReactRouter>
+        <IonToolbar
+          style={{
+            position: "fixed",
+            bottom: "50px",
+            background: "transparent",
+          }}
+        >
+          <IonLabel>
+            <Login />
+          </IonLabel>
+        </IonToolbar>
         <IonTabs>
           <IonRouterOutlet>
             <Route exact path="/current">
@@ -59,6 +71,7 @@ const App: React.FC = () => (
               <Redirect to="/current" />
             </Route>
           </IonRouterOutlet>
+
           <IonTabBar slot="bottom">
             <IonTabButton tab="current" href="/current">
               <IonIcon icon={triangle} />

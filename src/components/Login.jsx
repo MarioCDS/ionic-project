@@ -4,7 +4,7 @@ import {
   IonInput,
   IonLabel,
   IonToast,
-  useIonViewDidEnter,
+  useIonViewWillEnter,
 } from "@ionic/react";
 import { useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
@@ -38,7 +38,7 @@ export default function Login() {
   const [showLogoutToast, setShowLogoutToast] = useState(false);
   const [showLoginToast, setShowLoginToast] = useState(false);
 
-  useIonViewDidEnter(() => {
+  useIonViewWillEnter(() => {
     if (currentUser) {
       setLoggedIn(true);
       console.log(currentUser._delegate.email);
