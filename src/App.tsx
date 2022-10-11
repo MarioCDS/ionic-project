@@ -1,12 +1,14 @@
 import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
+  IonFooter,
   IonIcon,
   IonLabel,
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
   IonTabs,
+  IonToolbar,
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";

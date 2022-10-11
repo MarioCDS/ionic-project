@@ -4,6 +4,8 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonFooter,
+  IonLabel,
 } from "@ionic/react";
 import ExploreContainer from "../components/ExploreContainer";
 import "./Current.css";
@@ -24,6 +26,11 @@ const Current = () => {
         </IonHeader>
         <ExploreContainer name="Current" />
       </IonContent>
+      <IonFooter>
+        <IonToolbar>
+          <IonLabel>Footer</IonLabel>
+        </IonToolbar>
+      </IonFooter>
     </IonPage>
   );
 };
