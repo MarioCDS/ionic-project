@@ -5,10 +5,10 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import ExploreContainer from "../components/ExploreContainer";
-import "./Index.css";
-import { db } from "../firebase-config";
 import { useEffect } from "react";
+import ExploreContainer from "../components/ExploreContainer";
+import { db } from "../firebase-config";
+import "./Index.css";
 
 const Index = () => {
   useEffect(() => {
