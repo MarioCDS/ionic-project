@@ -1,27 +1,25 @@
 import {
-  IonCard,
   IonContent,
   IonHeader,
   IonPage,
-  IonTitle,
-  IonToolbar,
+  IonCard,
+  IonSearchbar,
   useIonViewWillEnter,
   IonItem,
 } from "@ionic/react";
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { Redirect, useHistory } from "react-router";
-
-import { db } from "../firebase-config";
-
 import "./Style.css";
+import { search, trashBin } from "ionicons/icons";
+import { db } from "../firebase-config";
+import { collection, getDocs } from "firebase/firestore";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
 
-const Index = () => {
+function Search() {
   const [songs, setSongs] = useState([]);
   const history = useHistory();
+  const [filteredSongs, setFilteredSongs] = useState([]);
   const { setCurrentSong } = useAuth();
-  let index = 1;
 
   useIonViewWillEnter(() => {
     fetchSongs();
@@ -35,7 +33,21 @@ const Index = () => {
       tempArray.push(doc.data());
     });
     setSongs(tempArray);
+    setFilteredSongs(tempArray);
   }
+
+  const handleChange = (ev) => {
+    let query = "";
+    const target = ev.target;
+    if (target) {
+      query = target.value.toLowerCase();
+      console.log(query);
+    }
+
+    setFilteredSongs(
+      songs.filter((song) => song.Title.toLowerCase().indexOf(query) > -1)
+    );
+  };
 
   //handle songClick
   const handleSongClick = (song) => {
@@ -45,29 +57,32 @@ const Index = () => {
 
   return (
     <IonPage>
+      <IonHeader>
+        <IonSearchbar
+          searchIcon={search}
+          placeholder="Search Songs"
+          showClearButton="always"
+          clearIcon={trashBin}
+          debounce={1000}
+          onIonChange={(ev) => handleChange(ev)}
+        ></IonSearchbar>
+      </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Index</IonTitle>
-          </IonToolbar>
-        </IonHeader>
         <IonCard className="card">
-          {songs.map((song) => (
+          {filteredSongs.map((song) => (
             <IonItem
               className="list"
               style={{ cursor: "pointer" }}
               onClick={() => handleSongClick(song)}
               key={song.Number}
             >
-              <h1>
-                {index++}: {song.Title}
-              </h1>
+              <h1>{song.Title}</h1>
             </IonItem>
           ))}
         </IonCard>
       </IonContent>
     </IonPage>
   );
-};
+}
 
-export default Index;
+export default Search;

@@ -11,9 +11,8 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { searchOutline, musicalNotes, list } from "ionicons/icons";
+import { musicalNotes, list } from "ionicons/icons";
 import Current from "./pages/Current";
-import Search from "./pages/Search";
 import Index from "./pages/Index";
 
 /* Core CSS required for Ionic components to work properly */
@@ -61,9 +60,6 @@ const App = () => (
             <Route exact path="/current">
               <Current />
             </Route>
-            <Route exact path="/search">
-              <Search />
-            </Route>
             <Route path="/index">
               <Index />
             </Route>
@@ -79,10 +75,6 @@ const App = () => (
             <IonTabButton tab="current" href="/current">
               <IonIcon icon={musicalNotes} />
               <IonLabel>Current</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="search" href="/search">
-              <IonIcon icon={searchOutline} />
-              <IonLabel>Search</IonLabel>
             </IonTabButton>
             <IonTabButton tab="index" href="/index">
               <IonIcon icon={list} />
