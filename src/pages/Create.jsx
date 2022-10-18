@@ -5,7 +5,7 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import "./Create.css";
+import "./Style.css";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 

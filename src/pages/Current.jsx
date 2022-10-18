@@ -10,7 +10,7 @@ import {
 } from "@ionic/react";
 
 import { useAuth } from "../contexts/AuthContext";
-import "./Current.css";
+import "./Style.css";
 
 const Current = () => {
   const { currentSong } = useAuth();

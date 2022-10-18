@@ -6,7 +6,7 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import ExploreContainer from "../components/ExploreContainer";
-import "./Search.css";
+import "./Style.css";
 
 const Search = () => {
   return (
