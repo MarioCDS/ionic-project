@@ -17,6 +17,7 @@ import { Editor } from "@tinymce/tinymce-react";
 export default function Create() {
   const editorRef = useRef(null);
   const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
   const [initializing, setInitializing] = useState(true);
   const [post, setPost] = useState({
     Title: "default title",
@@ -41,6 +42,7 @@ export default function Create() {
 
     await addDoc(docRef, {
       Title: post.Title,
+      Author: post.Author,
       Lyrics: post.Lyrics,
     });
   }
@@ -48,6 +50,7 @@ export default function Create() {
   function loadPost() {
     setPost({
       Title: title,
+      Author: author,
       Lyrics: editorRef.current.getContent(),
     });
   }
@@ -67,7 +70,7 @@ export default function Create() {
         </IonHeader>
         <IonLabel>Title:</IonLabel>
         <IonInput
-          type="field"
+          type="text"
           id="title"
           placeholder="Title"
           onIonChange={(e) => setTitle(e.target.value)}
@@ -109,6 +112,13 @@ export default function Create() {
               "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
           }}
         />
+        <IonLabel>Author:</IonLabel>
+        <IonInput
+          type="text"
+          id="author"
+          placeholder="Author"
+          onIonChange={(e) => setAuthor(e.target.value)}
+        ></IonInput>
         <IonButton onClick={loadPost}>Create lyrics</IonButton>
       </IonContent>
     </IonPage>
