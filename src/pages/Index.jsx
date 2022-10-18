@@ -4,16 +4,42 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  useIonViewWillEnter,
 } from "@ionic/react";
-import { useEffect } from "react";
-import ExploreContainer from "../components/ExploreContainer";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { Redirect, useHistory } from "react-router";
+
 import { db } from "../firebase-config";
+import "./Current.css";
 import "./Index.css";
+import { useAuth } from "../contexts/AuthContext";
 
 const Index = () => {
-  useEffect(() => {
-    console.log(db);
-  });
+  const [songs, setSongs] = useState([]);
+  const history = useHistory();
+  const { setCurrentSong } = useAuth();
+
+  useIonViewWillEnter(() => {
+    fetchSongs();
+  }, []);
+
+  async function fetchSongs() {
+    const querySnapshot = await getDocs(collection(db, "Lyrics"));
+    const tempArray = [];
+
+    querySnapshot.forEach((doc) => {
+      tempArray.push(doc.data());
+    });
+    setSongs(tempArray);
+  }
+
+  //handle songClick
+  const handleSongClick = (song) => {
+    setCurrentSong(song);
+    history.replace("/current");
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -27,7 +53,15 @@ const Index = () => {
             <IonTitle size="large">Index</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Index page" />
+        {songs.map((song) => (
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => handleSongClick(song)}
+            key={song.Number}
+          >
+            <h1>{song.Title}</h1>
+          </div>
+        ))}
       </IonContent>
     </IonPage>
   );

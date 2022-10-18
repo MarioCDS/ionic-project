@@ -22,7 +22,6 @@ const Search = () => {
             <IonTitle size="large">Search</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Search page" />
       </IonContent>
     </IonPage>
   );

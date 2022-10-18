@@ -1,17 +1,22 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  // ...
-  // The value of `databaseURL` depends on the location of the database
+  apiKey: "AIzaSyByfB9C0ZdB8p4eLVMuFcnz20pjHVo8NVI",
+  authDomain: "lyrics-ionic.firebaseapp.com",
   databaseURL:
-    "https://lyrics-ionic-default-rtdb.europe-west1.firebasedatabase.app/",
+    "https://lyrics-ionic-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "lyrics-ionic",
+  storageBucket: "lyrics-ionic.appspot.com",
+  messagingSenderId: "940804760146",
+  appId: "1:940804760146:web:52b84f607bb8ab9e40358b",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Realtime Database and get a reference to the service
-const database = getDatabase(app);
+export const db = getFirestore(app);
+export default app;
