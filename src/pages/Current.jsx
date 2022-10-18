@@ -16,12 +16,6 @@ import "./Style.css";
 const Current = () => {
   const { currentSong } = useAuth();
 
-  function decodeHtml(html) {
-    let e = document.createElement("div");
-    e.innerHTML = html;
-    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-  }
-
   return (
     <IonPage>
       <IonHeader></IonHeader>
