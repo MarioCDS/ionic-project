@@ -29,9 +29,7 @@ const Current = () => {
           </IonToolbar>
         </IonHeader>
         <IonCard className="card">
-          <h1 className="title">
-            {currentSong.Number}: {currentSong.Title}
-          </h1>
+          <h1 className="title">{currentSong.Title}</h1>
           <p>{currentSong.Lyrics}</p>
         </IonCard>
       </IonContent>

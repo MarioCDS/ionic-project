@@ -21,6 +21,7 @@ const Index = () => {
   const [songs, setSongs] = useState([]);
   const history = useHistory();
   const { setCurrentSong } = useAuth();
+  let index = 1;
 
   useIonViewWillEnter(() => {
     fetchSongs();
@@ -51,15 +52,18 @@ const Index = () => {
           </IonToolbar>
         </IonHeader>
         <IonCard className="card">
-        {songs.map((song) => (
-          <IonItem className="list"
-            style={{ cursor: "pointer" }}
-            onClick={() => handleSongClick(song)}
-            key={song.Number}
-          >
-            <h1>{song.Number}: {song.Title}</h1>
+          {songs.map((song) => (
+            <IonItem
+              className="list"
+              style={{ cursor: "pointer" }}
+              onClick={() => handleSongClick(song)}
+              key={song.Number}
+            >
+              <h1>
+                {index++}: {song.Title}
+              </h1>
             </IonItem>
-        ))}
+          ))}
         </IonCard>
       </IonContent>
     </IonPage>
