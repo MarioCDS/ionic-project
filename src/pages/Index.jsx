@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { Redirect, useHistory } from "react-router";
 
 import { db } from "../firebase-config";
-import "./Current.css";
+
 import "./Style.css";
 import { useAuth } from "../contexts/AuthContext";
 
