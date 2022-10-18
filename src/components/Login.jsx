@@ -141,7 +141,9 @@ export default function Login() {
           >
             Logout
           </IonButton>
-          <NavLink to="/create">Create</NavLink>
+          <NavLink to="/create">
+            <IonButton>Create</IonButton>
+          </NavLink>
         </>
       );
     }
