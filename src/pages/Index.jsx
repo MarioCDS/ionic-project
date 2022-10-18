@@ -52,7 +52,7 @@ function Search() {
   //handle songClick
   const handleSongClick = (song) => {
     setCurrentSong(song);
-    setHistory(history => [...history, song.Title]);
+    setHistory((history) => [song.Title, ...history]);
     historyUse.replace("/current");
   };
 

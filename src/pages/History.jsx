@@ -4,12 +4,10 @@ import { useAuth } from "../contexts/AuthContext";
 import { useIonViewWillEnter } from "@ionic/react";
 
 export default function History() {
-    const {history} = useAuth();
-    useIonViewWillEnter(() => {
-        console.log(history)
-    }, [])
+  const { history } = useAuth();
+  useIonViewWillEnter(() => {
+    console.log(history);
+  }, [history]);
 
-  return (
-    <IonPage>History</IonPage>
-  )
+  return <IonPage>History</IonPage>;
 }
