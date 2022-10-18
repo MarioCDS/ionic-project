@@ -17,9 +17,9 @@ import { useAuth } from "../contexts/AuthContext";
 
 function Search() {
   const [songs, setSongs] = useState([]);
-  const history = useHistory();
+  const historyUse = useHistory();
   const [filteredSongs, setFilteredSongs] = useState([]);
-  const { setCurrentSong } = useAuth();
+  const { setCurrentSong, setHistory, history } = useAuth();
 
   useIonViewWillEnter(() => {
     fetchSongs();
@@ -52,7 +52,8 @@ function Search() {
   //handle songClick
   const handleSongClick = (song) => {
     setCurrentSong(song);
-    history.replace("/current");
+    setHistory((history) => [song.Title, ...history]);
+    historyUse.replace("/current");
   };
 
   return (

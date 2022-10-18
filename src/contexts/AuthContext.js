@@ -10,6 +10,7 @@ export function useAuth() {
 export default function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
+  const [history, setHistory] = useState([]);
   const [currentSong, setCurrentSong] = useState({
     Title: "No Song Selected",
     Lyrics: "Please select a song from the Index page",
@@ -48,6 +49,8 @@ export default function AuthProvider({ children }) {
     logout,
     setCurrentSong,
     currentSong,
+    history,
+    setHistory,
   };
 
   return (

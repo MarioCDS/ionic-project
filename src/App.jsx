@@ -11,9 +11,10 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { musicalNotes, list } from "ionicons/icons";
+import { musicalNotes, list, archive } from "ionicons/icons";
 import Current from "./pages/Current";
 import Index from "./pages/Index";
+import History from "./pages/History";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -65,6 +66,9 @@ const App = () => (
             </Route>
             <Route exact path="/">
               <Redirect to="/index" />
+            </Route>
+            <Route exact path="/history">
+              <History />
             </Route>
             <Route exact path="/create">
               <Create />
