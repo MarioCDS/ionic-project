@@ -9,6 +9,7 @@ import {
 import { useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { logOutOutline, logInOutline } from "ionicons/icons";
+import { NavLink } from "react-router-dom";
 
 const style = {
   flex: 1,
@@ -140,6 +141,7 @@ export default function Login() {
           >
             Logout
           </IonButton>
+          <NavLink to="/create">Create</NavLink>
         </>
       );
     }

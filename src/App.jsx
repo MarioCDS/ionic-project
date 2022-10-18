@@ -38,6 +38,7 @@ import "./theme/variables.css";
 
 import AuthProvider from "./contexts/AuthContext";
 import Login from "./components/Login";
+import Create from "./pages/Create";
 
 setupIonicReact();
 
@@ -69,6 +70,9 @@ const App = () => (
             </Route>
             <Route exact path="/">
               <Redirect to="/current" />
+            </Route>
+            <Route exact path="/create">
+              <Create />
             </Route>
           </IonRouterOutlet>
 
