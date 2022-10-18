@@ -1,4 +1,4 @@
-h1 {
+.title {
     text-align: center;
 }
 
@@ -8,7 +8,14 @@ p {
 
 .card {
     padding: 20px;
-    background-color: #fafafa;
     border: ridge 20px;
     border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 16px;
+}
+
+.list {
+    max-width: 800px;
+    margin: auto;
 }

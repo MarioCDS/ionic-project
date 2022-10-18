@@ -1,10 +1,12 @@
 import {
+  IonCard,
   IonContent,
   IonHeader,
   IonPage,
   IonTitle,
   IonToolbar,
   useIonViewWillEnter,
+  IonItem,
 } from "@ionic/react";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -48,15 +50,17 @@ const Index = () => {
             <IonTitle size="large">Index</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <IonCard className="card">
         {songs.map((song) => (
-          <div
+          <IonItem className="list"
             style={{ cursor: "pointer" }}
             onClick={() => handleSongClick(song)}
             key={song.Number}
           >
-            <h1>{song.Title}</h1>
-          </div>
+            <h1>{song.Number}: {song.Title}</h1>
+            </IonItem>
         ))}
+        </IonCard>
       </IonContent>
     </IonPage>
   );
