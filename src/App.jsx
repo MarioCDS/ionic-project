@@ -84,6 +84,10 @@ const App = () => (
               <IonIcon icon={musicalNotes} />
               <IonLabel>Current</IonLabel>
             </IonTabButton>
+            <IonTabButton tab="history" href="/history">
+              <IonIcon icon={archive} />
+              <IonLabel>History</IonLabel>
+            </IonTabButton>
           </IonTabBar>
         </IonTabs>
       </IonReactRouter>
