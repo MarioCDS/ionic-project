@@ -57,11 +57,11 @@ const App = () => (
         </IonToolbar>
         <IonTabs>
           <IonRouterOutlet>
-            <Route exact path="/current">
-              <Current />
-            </Route>
             <Route path="/index">
               <Index />
+            </Route>
+            <Route exact path="/current">
+              <Current />
             </Route>
             <Route exact path="/">
               <Redirect to="/current" />
@@ -72,13 +72,13 @@ const App = () => (
           </IonRouterOutlet>
 
           <IonTabBar slot="bottom">
-            <IonTabButton tab="current" href="/current">
-              <IonIcon icon={musicalNotes} />
-              <IonLabel>Current</IonLabel>
-            </IonTabButton>
             <IonTabButton tab="index" href="/index">
               <IonIcon icon={list} />
               <IonLabel>Index</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="current" href="/current">
+              <IonIcon icon={musicalNotes} />
+              <IonLabel>Current</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>
