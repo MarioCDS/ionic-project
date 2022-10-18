@@ -64,7 +64,7 @@ const App = () => (
               <Current />
             </Route>
             <Route exact path="/">
-              <Redirect to="/current" />
+              <Redirect to="/index" />
             </Route>
             <Route exact path="/create">
               <Create />
