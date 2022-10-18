@@ -1,7 +1,6 @@
 import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
-  IonFooter,
   IonIcon,
   IonLabel,
   IonRouterOutlet,
@@ -12,7 +11,7 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { ellipse, square, triangle } from "ionicons/icons";
+import { searchOutline, musicalNotes, list } from "ionicons/icons";
 import Current from "./pages/Current";
 import Search from "./pages/Search";
 import Index from "./pages/Index";
@@ -78,15 +77,15 @@ const App = () => (
 
           <IonTabBar slot="bottom">
             <IonTabButton tab="current" href="/current">
-              <IonIcon icon={triangle} />
+              <IonIcon icon={musicalNotes} />
               <IonLabel>Current</IonLabel>
             </IonTabButton>
             <IonTabButton tab="search" href="/search">
-              <IonIcon icon={ellipse} />
+              <IonIcon icon={searchOutline} />
               <IonLabel>Search</IonLabel>
             </IonTabButton>
             <IonTabButton tab="index" href="/index">
-              <IonIcon icon={square} />
+              <IonIcon icon={list} />
               <IonLabel>Index</IonLabel>
             </IonTabButton>
           </IonTabBar>
