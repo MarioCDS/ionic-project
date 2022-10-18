@@ -1,5 +1,6 @@
 import {
   IonButton,
+  IonCard,
   IonContent,
   IonHeader,
   IonInput,
@@ -19,6 +20,7 @@ export default function Create() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [initializing, setInitializing] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
     Title: "default title",
     Number: "default subtitle",
@@ -38,6 +40,7 @@ export default function Create() {
   }, []);
 
   async function handleCreate() {
+    setSubmitting(true);
     const docRef = collection(db, "Lyrics");
 
     await addDoc(docRef, {
@@ -45,6 +48,7 @@ export default function Create() {
       Author: post.Author,
       Lyrics: post.Lyrics,
     });
+    setSubmitting(false);
   }
 
   function loadPost() {
@@ -57,69 +61,75 @@ export default function Create() {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Create</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <IonHeader></IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Create</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonLabel>Title:</IonLabel>
-        <IonInput
-          type="text"
-          id="title"
-          placeholder="Title"
-          onIonChange={(e) => setTitle(e.target.value)}
-        ></IonInput>
-        <IonLabel>Lyrics:</IonLabel>
-        <Editor
-          tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
-          onInit={(evt, editor) => (editorRef.current = editor)}
-          initialValue="<p>This is the initial content of the editor.</p>"
-          init={{
-            height: 500,
+        <IonCard className="createForm">
+          <IonTitle className="createTitle">Insert new lyrics</IonTitle>
+          <IonLabel className="createLabel">Title:</IonLabel>
+          <IonInput
+            type="text"
+            id="title"
+            className="createInput"
+            placeholder="Title"
+            onIonChange={(e) => setTitle(e.target.value)}
+          ></IonInput>
+          <IonLabel className="createLabel">Lyrics:</IonLabel>
+          <div className="createEditor">
+            <Editor
+              tinymceScriptSrc={
+                process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"
+              }
+              onInit={(evt, editor) => (editorRef.current = editor)}
+              init={{
+                height: 500,
 
-            menubar: false,
-            plugins: [
-              "advlist",
-              "autolink",
-              "lists",
-              "link",
-              "image",
-              "charmap",
-              "anchor",
-              "searchreplace",
-              "visualblocks",
-              "code",
-              "fullscreen",
-              "insertdatetime",
-              "media",
-              "table",
-              "preview",
-              "help",
-              "wordcount",
-            ],
-            toolbar:
-              "undo redo | blocks | " +
-              "bold italic forecolor | alignleft aligncenter " +
-              "alignright alignjustify | bullist numlist outdent indent | " +
-              "removeformat | help",
-            content_style:
-              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-          }}
-        />
-        <IonLabel>Author:</IonLabel>
-        <IonInput
-          type="text"
-          id="author"
-          placeholder="Author"
-          onIonChange={(e) => setAuthor(e.target.value)}
-        ></IonInput>
-        <IonButton onClick={loadPost}>Create lyrics</IonButton>
+                menubar: false,
+                plugins: [
+                  "advlist",
+                  "autolink",
+                  "lists",
+                  "link",
+                  "image",
+                  "charmap",
+                  "anchor",
+                  "searchreplace",
+                  "visualblocks",
+                  "code",
+                  "fullscreen",
+                  "insertdatetime",
+                  "media",
+                  "table",
+                  "preview",
+                  "help",
+                  "wordcount",
+                ],
+                toolbar:
+                  "undo redo | blocks | " +
+                  "bold italic forecolor | alignleft aligncenter " +
+                  "alignright alignjustify | bullist numlist outdent indent | " +
+                  "removeformat | help",
+                content_style:
+                  "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+              }}
+            />
+          </div>
+          <IonLabel className="createLabel">Author:</IonLabel>
+          <IonInput
+            type="text"
+            id="author"
+            className="createInput"
+            placeholder="Author"
+            onIonChange={(e) => setAuthor(e.target.value)}
+          ></IonInput>
+          <IonButton onClick={loadPost}>
+            {submitting ? "Creating.." : "Create lyrics"}
+          </IonButton>
+        </IonCard>
       </IonContent>
     </IonPage>
   );

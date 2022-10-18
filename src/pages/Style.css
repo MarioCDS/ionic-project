@@ -1,21 +1,67 @@
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 p {
-    line-height: 1.5rem;
+  line-height: 1.5rem;
 }
 
 .card {
-    padding: 20px;
-    border: ridge 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: auto;
-    margin-top: 16px;
+  padding: 20px;
+  border: ridge 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 16px;
 }
 
 .list {
-    max-width: 800px;
-    margin: auto;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ----------- Create page ------------ */
+
+.createTitle {
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.createForm {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.createLabel {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: large;
+}
+.createInput {
+  max-width: 400px;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  border: solid 1px gray;
+}
+
+.createEditor {
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: solid 1px gray;
+}
+
+/* ---------- Dark Mode ---------- */
+@media (prefers-color-scheme: dark) {
+  .createInput {
+    max-width: 400px;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    background-color: #3e3e3e;
+    border-radius: 5px;
+    border: solid 1px gray;
+  }
 }
