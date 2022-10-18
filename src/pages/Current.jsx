@@ -28,7 +28,7 @@ const Current = () => {
             <IonTitle size="large">Current</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonCard>
+        <IonCard className="card">
           <h1>
             {currentSong.Number} - {currentSong.Title}
           </h1>
