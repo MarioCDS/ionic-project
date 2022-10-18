@@ -76,7 +76,7 @@ const App = () => (
             </Route>
           </IonRouterOutlet>
 
-          <IonTabBar slot="bottom">
+          <IonTabBar style={{ marginTop: "60px" }} slot="bottom">
             <IonTabButton tab="current" href="/current">
               <IonIcon icon={triangle} />
               <IonLabel>Current</IonLabel>

@@ -3,6 +3,7 @@ import {
   IonContent,
   IonHeader,
   IonPage,
+  IonTextarea,
   IonTitle,
   IonToolbar,
   useIonViewDidEnter,
@@ -15,9 +16,11 @@ import "./Style.css";
 const Current = () => {
   const { currentSong } = useAuth();
 
-  useIonViewWillEnter(() => {
-    console.log(currentSong._id);
-  }, [currentSong]);
+  function decodeHtml(html) {
+    let e = document.createElement("div");
+    e.innerHTML = html;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  }
 
   return (
     <IonPage>
@@ -29,10 +32,8 @@ const Current = () => {
           </IonToolbar>
         </IonHeader>
         <IonCard>
-          <h1>
-            {currentSong.Number} - {currentSong.Title}
-          </h1>
-          <p>{currentSong.Lyrics}</p>
+          <h1>{currentSong.Title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: currentSong.Lyrics }}></div>
         </IonCard>
       </IonContent>
     </IonPage>
