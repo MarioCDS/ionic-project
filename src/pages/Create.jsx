@@ -1,6 +1,8 @@
 import {
   IonContent,
   IonHeader,
+  IonInput,
+  IonLabel,
   IonPage,
   IonTitle,
   IonToolbar,
@@ -37,43 +39,12 @@ export default function Create() {
             <IonTitle size="large">Create</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <button onClick={handleCreate}>Create test</button>
-        <Editor
-          tinymceScriptSrc={process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"}
-          onInit={(evt, editor) => (editorRef.current = editor)}
-          initialValue="<p>This is the initial content of the editor.</p>"
-          init={{
-            height: 500,
-
-            menubar: false,
-            plugins: [
-              "advlist",
-              "autolink",
-              "lists",
-              "link",
-              "image",
-              "charmap",
-              "anchor",
-              "searchreplace",
-              "visualblocks",
-              "code",
-              "fullscreen",
-              "insertdatetime",
-              "media",
-              "table",
-              "preview",
-              "help",
-              "wordcount",
-            ],
-            toolbar:
-              "undo redo | blocks | " +
-              "bold italic forecolor | alignleft aligncenter " +
-              "alignright alignjustify | bullist numlist outdent indent | " +
-              "removeformat | help",
-            content_style:
-              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-          }}
-        />
+        <IonLabel>Song Number</IonLabel>
+        <IonInput name="number" placeholder="Number"></IonInput>
+        <IonLabel>Title:</IonLabel>
+        <IonInput name="title" placeholder="Title"></IonInput>
+        <IonLabel>Lyrics:</IonLabel>
+        <textArea name="title" placeholder="Lyrics"></textArea>
       </IonContent>
     </IonPage>
   );
