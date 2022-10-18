@@ -8,11 +8,8 @@ import {
   useIonViewDidEnter,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { collection, getDoc, doc } from "firebase/firestore";
-import { useEffect, useState } from "react";
 
 import { useAuth } from "../contexts/AuthContext";
-import { db } from "../firebase-config";
 import "./Current.css";
 
 const Current = () => {
