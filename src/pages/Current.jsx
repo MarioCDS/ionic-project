@@ -1,45 +1,42 @@
 import {
+  IonCard,
   IonContent,
   IonHeader,
   IonPage,
   IonTitle,
   IonToolbar,
+  useIonViewDidEnter,
   useIonViewWillEnter,
 } from "@ionic/react";
-import ExploreContainer from "../components/ExploreContainer";
+import { collection, getDoc, doc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+
+import { useAuth } from "../contexts/AuthContext";
+import { db } from "../firebase-config";
 import "./Current.css";
-import db from "../firebase-config";
-import { useState } from "react";
-import { collection, addDoc, getDocs } from "firebase/firestore";
 
 const Current = () => {
-  const [songs, setSongs] = useState([]);
+  const { currentSong } = useAuth();
 
   useIonViewWillEnter(() => {
-    fetchSongs();
-  }, []);
-
-  async function fetchSongs() {
-    const querySnapshot = await getDocs(collection(db, "Lyrics"));
-    querySnapshot.forEach((doc) => {
-      console.log(`${doc.id} => ${doc.data()}`);
-    });
-  }
+    console.log(currentSong._id);
+  }, [currentSong]);
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Current</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <IonHeader></IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Current</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Current" />
+        <IonCard>
+          <h1>
+            {currentSong.Number} - {currentSong.Title}
+          </h1>
+          <p>{currentSong.Lyrics}</p>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
