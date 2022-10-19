@@ -6,6 +6,7 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonList,
 } from "@ionic/react";
 
 import { useAuth } from "../contexts/AuthContext";
@@ -36,9 +37,9 @@ const Current = () => {
           <h1 className="title">{currentSong.Title}</h1>
           <div dangerouslySetInnerHTML={{ __html: currentSong.Lyrics }}></div>
         </IonCard>
-        <IonButton style={{ marginLeft: "47%" }} onClick={handleShare}>
-          Share
-        </IonButton>
+        <IonList className="button-center">
+          <IonButton onClick={handleShare}>Share</IonButton>
+        </IonList>
       </IonContent>
     </IonPage>
   );
