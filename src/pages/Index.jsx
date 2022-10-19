@@ -56,7 +56,7 @@ function Search() {
     setCurrentSong(song);
 
     history.forEach((el) => {
-      if (el === song.Title) {
+      if (el.Title === song.Title) {
         let index = history.indexOf(el);
         history.splice(index, 1);
       }
