@@ -3,11 +3,8 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  IonTextarea,
   IonTitle,
   IonToolbar,
-  useIonViewDidEnter,
-  useIonViewWillEnter,
 } from "@ionic/react";
 
 import { useAuth } from "../contexts/AuthContext";
