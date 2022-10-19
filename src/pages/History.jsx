@@ -1,8 +1,15 @@
-import { IonCard, IonCardTitle, IonPage, IonItem } from "@ionic/react";
+import {
+  IonCard,
+  IonCardTitle,
+  IonPage,
+  IonItem,
+  IonContent,
+} from "@ionic/react";
 import { useAuth } from "../contexts/AuthContext";
 
 import { useIonViewWillEnter } from "@ionic/react";
 import { useHistory } from "react-router";
+import "./Style.css";
 
 export default function History() {
   const { setCurrentSong, history } = useAuth();
@@ -20,19 +27,22 @@ export default function History() {
 
   return (
     <IonPage>
-      <IonCard>
-        <IonCardTitle>History</IonCardTitle>
-        {history.map((song) => (
-          <IonItem className="list">
-            <div
-              style={{ cursor: "pointer" }}
-              onClick={() => handleSongClick(song)}
-            >
-              <h1>{song.Title}</h1>
-            </div>
-          </IonItem>
-        ))}
-      </IonCard>
+      <IonContent fullscreen>
+        <IonCard className="card">
+          <IonCardTitle>Recently Viewed</IonCardTitle>
+          {history.length > 0 ? null : <h2>The history is currently empty, you can view lyrics in the index.</h2>}
+          {history.map((song) => (
+            <IonItem className="list">
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => handleSongClick(song)}
+              >
+                <h1>{song.Title}</h1>
+              </div>
+            </IonItem>
+          ))}
+        </IonCard>
+      </IonContent>
     </IonPage>
   );
 }
