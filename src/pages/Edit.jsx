@@ -11,7 +11,7 @@ import {
   useIonViewWillEnter,
 } from "@ionic/react";
 import "./Style.css";
-import { doc, setDoc, addDoc, collection } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
@@ -43,7 +43,7 @@ export default function Create() {
       console.log(post);
       handleCreate();
     }
-  }, [post]);
+  });
 
   //A toggle used to prevent other useEffect functions from running on the first render. This should always be the last useEffect.
   useEffect(() => {
