@@ -137,7 +137,7 @@ export default function Create() {
             onIonChange={(e) => setAuthor(e.target.value)}
           ></IonInput>
           <IonButton onClick={loadPost}>
-            {submitting ? "Creating.." : "Create lyrics"}
+            {submitting ? "Updating.." : "Update"}
           </IonButton>
         </IonCard>
       </IonContent>
