@@ -19,12 +19,13 @@ export default function Create() {
   const editorRef = useRef(null);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [lyrics, setLyrics] = useState("");
   const [initializing, setInitializing] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({
-    Title: "default title",
-    Number: "default subtitle",
-    Lyrics: "lorem ibsum",
+    Title: "",
+    Number: "",
+    Lyrics: "",
   });
 
   useEffect(() => {
@@ -48,6 +49,11 @@ export default function Create() {
       Author: post.Author,
       Lyrics: post.Lyrics,
     });
+
+    setTitle("");
+    setAuthor("");
+    setLyrics("");
+    editorRef.current.setContent("");
     setSubmitting(false);
   }
 
@@ -75,6 +81,7 @@ export default function Create() {
             type="text"
             id="title"
             className="createInput"
+            value={title}
             placeholder="Title"
             onIonChange={(e) => setTitle(e.target.value)}
           ></IonInput>
@@ -85,6 +92,7 @@ export default function Create() {
                 process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"
               }
               onInit={(evt, editor) => (editorRef.current = editor)}
+              initialValue={lyrics}
               init={{
                 height: 500,
 
@@ -122,6 +130,7 @@ export default function Create() {
           <IonInput
             type="text"
             id="author"
+            value={author}
             className="createInput"
             placeholder="Author"
             onIonChange={(e) => setAuthor(e.target.value)}

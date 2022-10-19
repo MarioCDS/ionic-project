@@ -15,6 +15,7 @@ import { collection, getDocs } from "firebase/firestore";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
+import { doc, deleteDoc } from "firebase/firestore";
 
 function Search() {
   const [songs, setSongs] = useState([]);
@@ -72,6 +73,11 @@ function Search() {
     historyUse.replace("/edit");
   };
 
+  const handleDelete = async (song) => {
+    await deleteDoc(doc(db, "Lyrics", song.id));
+    fetchSongs();
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -97,7 +103,14 @@ function Search() {
                 </h1>
               </div>
               {currentUser ? (
-                <IonButton onClick={() => handleSongEdit(song)}>Edit</IonButton>
+                <>
+                  <IonButton onClick={() => handleSongEdit(song)}>
+                    Edit
+                  </IonButton>
+                  <IonButton onClick={() => handleDelete(song)}>
+                    Delete
+                  </IonButton>
+                </>
               ) : null}
             </IonItem>
           ))}
