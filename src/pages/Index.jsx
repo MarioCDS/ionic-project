@@ -84,6 +84,7 @@ function Search() {
         ></IonSearchbar>
       </IonHeader>
       <IonContent fullscreen>
+      <div className="page">
         <IonCard className="card">
           {filteredSongs.map((song) => (
             <IonItem className="list" key={songNumber++}>
@@ -101,6 +102,7 @@ function Search() {
             </IonItem>
           ))}
         </IonCard>
+        </div>
       </IonContent>
     </IonPage>
   );
