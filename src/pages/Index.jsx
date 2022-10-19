@@ -54,6 +54,15 @@ function Search() {
   //handle songClick
   const handleSongClick = (song) => {
     setCurrentSong(song);
+
+    history.forEach((el) => {
+      console.log(el);
+      console.log(song.Title);
+      if (el === song.Title) {
+        let index = history.indexOf(el);
+        history.splice(index, 1);
+      }
+    });
     setHistory((history) => [song.Title, ...history]);
     historyUse.replace("/current");
   };
