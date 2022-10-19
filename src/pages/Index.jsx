@@ -1,26 +1,31 @@
 import {
+  IonButton,
+  IonCard,
   IonContent,
   IonHeader,
-  IonPage,
-  IonCard,
-  IonSearchbar,
-  useIonViewWillEnter,
   IonItem,
-  IonButton,
+  IonPage,
+  IonSearchbar,
+  useIonAlert,
+  useIonViewWillEnter,
 } from "@ionic/react";
-import "./Style.css";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { search, trashBin } from "ionicons/icons";
-import { db } from "../firebase-config";
-import { collection, getDocs } from "firebase/firestore";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
 import { useAuth } from "../contexts/AuthContext";
+import { db } from "../firebase-config";
+import "./Style.css";
 
 function Search() {
   const [songs, setSongs] = useState([]);
   const historyUse = useHistory();
   const [filteredSongs, setFilteredSongs] = useState([]);
   const { setCurrentSong, setHistory, history, currentUser } = useAuth();
+  const [presentAlert] = useIonAlert();
+  const [handlerMessage, setHandlerMessage] = useState("");
+  const [roleMessage, setRoleMessage] = useState("");
+
   let songNumber = 1;
 
   useIonViewWillEnter(() => {
@@ -33,6 +38,7 @@ function Search() {
 
     querySnapshot.forEach((doc) => {
       tempArray.push(doc.data());
+      tempArray[tempArray.length - 1].id = doc._document.key.path.segments[6];
     });
     setSongs(tempArray);
     setFilteredSongs(tempArray);
@@ -71,6 +77,32 @@ function Search() {
     historyUse.replace("/edit");
   };
 
+  const handleDelete = async (song) => {
+    await presentAlert({
+      header: "Are you sure you want to delete " + song.Title + "?",
+      buttons: [
+        {
+          text: "No",
+          role: "cancel",
+          handler: () => {
+            setHandlerMessage("Alert canceled");
+          },
+        },
+        {
+          text: "Yes",
+          role: "confirm",
+          handler: () => {
+            setHandlerMessage("Alert confirmed");
+            deleteDoc(doc(db, "Lyrics", song.id));
+            fetchSongs();
+          },
+        },
+      ],
+      onDidDismiss: (e) =>
+        setRoleMessage(`Dismissed with role: ${e.detail.role}`),
+    });
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -97,10 +129,19 @@ function Search() {
                 </h1>
               </div>
               {currentUser ? (
-                <IonButton onClick={() => handleSongEdit(song)}>Edit</IonButton>
+                <>
+                  <IonButton onClick={() => handleSongEdit(song)}>
+                    Edit
+                  </IonButton>
+                  <IonButton onClick={() => handleDelete(song)}>
+                    Delete
+                  </IonButton>
+                </>
               ) : null}
             </IonItem>
           ))}
+          <p>{handlerMessage}</p>
+          <p>{roleMessage}</p>
         </IonCard>
         </div>
       </IonContent>

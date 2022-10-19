@@ -20,9 +20,33 @@ p {
   margin-top: 16px;
 }
 
+.button-center {
+  text-align: center;
+}
+
 .list {
   max-width: 800px;
   margin: auto;
+}
+
+/* ------- Login bar ----------- */
+
+.loginInput {
+  background-color: rgb(247, 247, 247);
+  border-radius: 10px;
+  border: 1px solid rgb(220, 220, 220);
+  margin-right: 15px;
+}
+
+.loginForm {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90%;
+  text-align: center;
 }
 
 /* ----------- Create page ------------ */
@@ -68,5 +92,12 @@ p {
     background-color: #3e3e3e;
     border-radius: 5px;
     border: solid 1px gray;
+  }
+
+  .loginInput {
+    background-color: rgb(72, 72, 72);
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+    margin-right: 15px;
   }
 }
