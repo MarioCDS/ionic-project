@@ -12,6 +12,7 @@ import { useHistory } from "react-router";
 import "./Style.css";
 
 export default function History() {
+  let songNumber = 1;
   const { setCurrentSong, history } = useAuth();
   const historyUse = useHistory();
   useIonViewWillEnter(() => {
@@ -30,9 +31,13 @@ export default function History() {
       <IonContent fullscreen>
         <IonCard className="card">
           <IonCardTitle>Recently Viewed</IonCardTitle>
-          {history.length > 0 ? null : <h2>The history is currently empty, you can view lyrics in the index.</h2>}
+          {history.length > 0 ? null : (
+            <h2>
+              The history is currently empty, you can view lyrics in the index.
+            </h2>
+          )}
           {history.map((song) => (
-            <IonItem className="list">
+            <IonItem className="list" key={songNumber++}>
               <div
                 style={{ cursor: "pointer" }}
                 onClick={() => handleSongClick(song)}
