@@ -10,23 +10,7 @@ import { useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { logOutOutline, logInOutline } from "ionicons/icons";
 import { NavLink } from "react-router-dom";
-
-const style = {
-  flex: 1,
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100%",
-  width: "90%",
-  textAlign: "center",
-};
-const formStyle = {
-  backgroundColor: "rgb(247, 247, 247)",
-  borderRadius: "10px",
-  border: "1px solid rgb(220, 220, 220)",
-  marginRight: "15px",
-};
+import "../pages/Style.css";
 
 export default function Login() {
   const emailRef = useRef();
@@ -80,7 +64,7 @@ export default function Login() {
         return (
           <>
             {error ? <IonLabel>{error}</IonLabel> : null}
-            <form style={style} onSubmit={handleSubmit} className="loginForm">
+            <form onSubmit={handleSubmit} className="loginForm">
               <IonIcon
                 style={{
                   marginRight: "15px",
@@ -94,7 +78,7 @@ export default function Login() {
               />
               <IonInput
                 required
-                style={formStyle}
+                className="loginInput"
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -103,7 +87,7 @@ export default function Login() {
 
               <IonInput
                 required
-                style={formStyle}
+                className="loginInput"
                 type="password"
                 name="password"
                 placeholder="Password"
