@@ -6,6 +6,7 @@ import {
   IonSearchbar,
   useIonViewWillEnter,
   IonItem,
+  IonButton,
 } from "@ionic/react";
 import "./Style.css";
 import { search, trashBin } from "ionicons/icons";
@@ -19,7 +20,7 @@ function Search() {
   const [songs, setSongs] = useState([]);
   const historyUse = useHistory();
   const [filteredSongs, setFilteredSongs] = useState([]);
-  const { setCurrentSong, setHistory, history } = useAuth();
+  const { setCurrentSong, setHistory, history, currentUser } = useAuth();
   let songNumber = 1;
 
   useIonViewWillEnter(() => {
@@ -57,6 +58,11 @@ function Search() {
     historyUse.replace("/current");
   };
 
+  const handleSongEdit = (song) => {
+    setCurrentSong(song);
+    historyUse.replace("/edit");
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -72,15 +78,18 @@ function Search() {
       <IonContent fullscreen>
         <IonCard className="card">
           {filteredSongs.map((song) => (
-            <IonItem
-              className="list"
-              style={{ cursor: "pointer" }}
-              onClick={() => handleSongClick(song)}
-              key={songNumber++}
-            >
-              <h1>
-                {songNumber} - {song.Title}
-              </h1>
+            <IonItem className="list" key={songNumber++}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => handleSongClick(song)}
+              >
+                <h1>
+                  {songNumber} - {song.Title}
+                </h1>
+              </div>
+              {currentUser ? (
+                <IonButton onClick={() => handleSongEdit(song)}>Edit</IonButton>
+              ) : null}
             </IonItem>
           ))}
         </IonCard>
