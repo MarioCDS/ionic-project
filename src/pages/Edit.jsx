@@ -13,12 +13,14 @@ export default function Create() {
     <IonPage>
       <IonHeader></IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Create</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <LyricsForm mode="edit" />
+        <div className="page">
+          <IonHeader collapse="condense">
+            <IonToolbar>
+              <IonTitle size="large">Create</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+          <LyricsForm mode="edit" />
+        </div>
       </IonContent>
     </IonPage>
   );

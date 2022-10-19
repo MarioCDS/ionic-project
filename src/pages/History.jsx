@@ -29,24 +29,27 @@ export default function History() {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <IonCard className="card">
-          <IonCardTitle>Recently Viewed</IonCardTitle>
-          {history.length > 0 ? null : (
-            <h2>
-              The history is currently empty, you can view lyrics in the index.
-            </h2>
-          )}
-          {history.map((song) => (
-            <IonItem className="list" key={songNumber++}>
-              <div
-                style={{ cursor: "pointer" }}
-                onClick={() => handleSongClick(song)}
-              >
-                <h1>{song.Title}</h1>
-              </div>
-            </IonItem>
-          ))}
-        </IonCard>
+        <div className="page">
+          <IonCard className="card">
+            <IonCardTitle>Recently Viewed</IonCardTitle>
+            {history.length > 0 ? null : (
+              <h2>
+                The history is currently empty, you can view lyrics in the
+                index.
+              </h2>
+            )}
+            {history.map((song) => (
+              <IonItem className="list" key={songNumber++}>
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleSongClick(song)}
+                >
+                  <h1>{song.Title}</h1>
+                </div>
+              </IonItem>
+            ))}
+          </IonCard>
+        </div>
       </IonContent>
     </IonPage>
   );
