@@ -33,6 +33,7 @@ function Search() {
 
     querySnapshot.forEach((doc) => {
       tempArray.push(doc.data());
+      tempArray[tempArray.length - 1].id = doc._document.key.path.segments[6];
     });
     setSongs(tempArray);
     setFilteredSongs(tempArray);
