@@ -20,6 +20,7 @@ function Search() {
   const historyUse = useHistory();
   const [filteredSongs, setFilteredSongs] = useState([]);
   const { setCurrentSong, setHistory, history } = useAuth();
+  let songNumber = 1;
 
   useIonViewWillEnter(() => {
     fetchSongs();
@@ -75,9 +76,11 @@ function Search() {
               className="list"
               style={{ cursor: "pointer" }}
               onClick={() => handleSongClick(song)}
-              key={song.Number}
+              key={songNumber++}
             >
-              <h1>{song.Title}</h1>
+              <h1>
+                {songNumber} - {song.Title}
+              </h1>
             </IonItem>
           ))}
         </IonCard>
