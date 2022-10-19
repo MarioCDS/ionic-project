@@ -15,6 +15,7 @@ export default function AuthProvider({ children }) {
     Title: "No Song Selected",
     Lyrics: "Please select a song from the Index page",
     Number: "",
+    Author: "",
   });
 
   function signUp(email, password) {

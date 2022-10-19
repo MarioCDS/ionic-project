@@ -8,6 +8,7 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  useIonViewWillEnter,
 } from "@ionic/react";
 import "./Style.css";
 import { doc, setDoc, addDoc, collection } from "firebase/firestore";
@@ -19,6 +20,7 @@ import { useAuth } from "../contexts/AuthContext";
 export default function Create() {
   const editorRef = useRef(null);
   const [title, setTitle] = useState("");
+  const [lyrics, setLyrics] = useState("");
   const [author, setAuthor] = useState("");
   const [initializing, setInitializing] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -29,10 +31,17 @@ export default function Create() {
     Lyrics: "lorem ibsum",
   });
 
+  useIonViewWillEnter(() => {
+    setTitle(currentSong.Title);
+    setLyrics(currentSong.Lyrics);
+    setAuthor(currentSong.Author);
+    console.log(currentSong);
+  }, [currentSong]);
+
   useEffect(() => {
     if (initializing === false) {
       console.log(post);
-      handleCreate("createPost");
+      handleCreate();
     }
   }, [post]);
 
@@ -43,12 +52,10 @@ export default function Create() {
 
   async function handleCreate() {
     setSubmitting(true);
-    const docRef = collection(db, "Lyrics");
-
-    await addDoc(docRef, {
+    await setDoc(doc(db, "Lyrics", currentSong.id), {
       Title: post.Title,
-      Author: post.Author,
       Lyrics: post.Lyrics,
+      Author: post.Author,
     });
     setSubmitting(false);
   }
@@ -77,7 +84,7 @@ export default function Create() {
             type="text"
             id="title"
             className="createInput"
-            placeholder="Title"
+            value={title}
             onIonChange={(e) => setTitle(e.target.value)}
           ></IonInput>
           <IonLabel className="createLabel">Lyrics:</IonLabel>
@@ -87,6 +94,7 @@ export default function Create() {
                 process.env.PUBLIC_URL + "/tinymce/tinymce.min.js"
               }
               onInit={(evt, editor) => (editorRef.current = editor)}
+              initialValue={lyrics}
               init={{
                 height: 500,
 
@@ -125,7 +133,7 @@ export default function Create() {
             type="text"
             id="author"
             className="createInput"
-            defaultValue={currentSong.Author}
+            value={author}
             onIonChange={(e) => setAuthor(e.target.value)}
           ></IonInput>
           <IonButton onClick={loadPost}>

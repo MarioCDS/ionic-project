@@ -15,7 +15,7 @@ import { musicalNotes, list, archive } from "ionicons/icons";
 import Current from "./pages/Current";
 import Index from "./pages/Index";
 import History from "./pages/History";
-import Edit from "./pages/History";
+import Edit from "./pages/Edit";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
