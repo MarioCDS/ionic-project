@@ -28,7 +28,16 @@ We also use states to make the UI update dynamically, such as displaying buttons
 **A description of how to run the app in the browser and on a platforms (Android/iOS), including CLI commands**
 
 ```shell
-npm install --save @tinymce/tinymce-react 
+npm install
+ionic serve
+
+//For deploying to android
+npm i @capacitor/core
+npm i -D @capacitor/cli
+npm i @capacitor/android
+
+ionic capacitor sync android
+ionic capacitor open android
 ```
 
 
