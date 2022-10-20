@@ -59,7 +59,7 @@ export default function Login() {
   }
 
   function showLogin() {
-    if (!loggedIn) {
+    if (!currentUser) {
       if (display) {
         return (
           <>
