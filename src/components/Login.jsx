@@ -1,11 +1,4 @@
-import {
-  IonButton,
-  IonIcon,
-  IonInput,
-  IonLabel,
-  IonToast,
-  useIonViewWillEnter,
-} from "@ionic/react";
+import { IonButton, IonIcon, IonInput, IonLabel, IonToast } from "@ionic/react";
 import { useRef, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { logOutOutline, logInOutline } from "ionicons/icons";
@@ -18,17 +11,9 @@ export default function Login() {
   const { login, logout, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
   const [display, setDisplay] = useState(false);
   const [showLogoutToast, setShowLogoutToast] = useState(false);
   const [showLoginToast, setShowLoginToast] = useState(false);
-
-  useIonViewWillEnter(() => {
-    if (currentUser) {
-      setLoggedIn(true);
-      console.log(currentUser._delegate.email);
-    }
-  });
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -43,7 +28,6 @@ export default function Login() {
       console.log(
         await login(emailRef.current.value, passwordRef.current.value)
       );
-      setLoggedIn(true);
     } catch {
       setError("Failed to log in");
     }
@@ -54,7 +38,6 @@ export default function Login() {
   function handleLogout() {
     logout();
     setShowLogoutToast(true);
-    setLoggedIn(false);
     setDisplay(false);
   }
 
