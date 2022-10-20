@@ -41,7 +41,6 @@ p {
   border-radius: 10px;
   max-width: 800px;
   margin: auto;
-
 }
 
 .button-center {
@@ -130,7 +129,7 @@ p {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .card {
     padding: 10px;
     width: 90%;
@@ -144,5 +143,10 @@ p {
   html h2 {
     font-size: 18px;
   }
-  
+
+  .createForm {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+  }
 }
