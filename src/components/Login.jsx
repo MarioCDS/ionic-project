@@ -4,12 +4,12 @@ import {
   IonInput,
   IonLabel,
   IonToast,
-  useIonViewWillEnter,
+  useIonViewWillEnter
 } from "@ionic/react";
+import { logInOutline, logOutOutline } from "ionicons/icons";
 import { useRef, useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import { logOutOutline, logInOutline } from "ionicons/icons";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import "../pages/Style.css";
 
 export default function Login() {

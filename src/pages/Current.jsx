@@ -1,17 +1,12 @@
 import {
   IonButton,
-  IonCard,
-  IonContent,
+  IonCard, IonCardSubtitle, IonContent,
   IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonList,
-  IonCardSubtitle,
+  IonPage
 } from "@ionic/react";
 
-import { useAuth } from "../contexts/AuthContext";
 import { Share } from "@capacitor/share";
+import { useAuth } from "../contexts/AuthContext";
 import "./Style.css";
 
 const Current = () => {

@@ -1,23 +1,16 @@
 import {
   IonButton,
-  IonCard,
-  IonContent,
-  IonHeader,
-  IonInput,
-  IonLabel,
-  IonPage,
-  IonTitle,
-  IonToast,
-  IonToolbar,
-  useIonViewWillEnter,
+  IonCard, IonInput,
+  IonLabel, IonTitle,
+  IonToast, useIonViewWillEnter
 } from "@ionic/react";
-import "../pages/Style.css";
-import { doc, setDoc, addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase-config";
-import { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
-import { useAuth } from "../contexts/AuthContext";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import { useAuth } from "../contexts/AuthContext";
+import { db } from "../firebase-config";
+import "../pages/Style.css";
 
 export default function LyricsForm({ mode }) {
   const editorRef = useRef(null);

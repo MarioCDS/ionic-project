@@ -7,7 +7,7 @@ import {
   IonPage,
   IonSearchbar,
   useIonAlert,
-  useIonViewWillEnter,
+  useIonViewWillEnter
 } from "@ionic/react";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { search, trashBin } from "ionicons/icons";

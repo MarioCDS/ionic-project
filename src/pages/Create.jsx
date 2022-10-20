@@ -3,7 +3,7 @@ import {
   IonHeader,
   IonPage,
   IonTitle,
-  IonToolbar,
+  IonToolbar
 } from "@ionic/react";
 import LyricsForm from "../components/LyricsForm";
 import "./Style.css";
