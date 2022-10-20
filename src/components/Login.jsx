@@ -125,7 +125,6 @@ export default function Login() {
         <>
           <IonButton
             onClick={handleLogout}
-            slot="end"
             type="submit"
             style={{ maxWidth: "150px" }}
           >
