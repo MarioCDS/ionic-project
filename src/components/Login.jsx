@@ -2,6 +2,7 @@ import { IonButton, IonIcon, IonInput, IonLabel, IonToast } from "@ionic/react";
 import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { logOutOutline, logInOutline } from "ionicons/icons";
 import "../pages/Style.css";
 
 export default function Login() {
