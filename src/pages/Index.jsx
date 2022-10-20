@@ -23,8 +23,6 @@ function Search() {
   const [filteredSongs, setFilteredSongs] = useState([]);
   const { setCurrentSong, setHistory, history, currentUser } = useAuth();
   const [presentAlert] = useIonAlert();
-  const [handlerMessage, setHandlerMessage] = useState("");
-  const [roleMessage, setRoleMessage] = useState("");
 
   let songNumber = 1;
 
@@ -84,22 +82,17 @@ function Search() {
         {
           text: "No",
           role: "cancel",
-          handler: () => {
-            setHandlerMessage("Alert canceled");
-          },
+          handler: () => {},
         },
         {
           text: "Yes",
           role: "confirm",
           handler: () => {
-            setHandlerMessage("Alert confirmed");
             deleteDoc(doc(db, "Lyrics", song.id));
             fetchSongs();
           },
         },
       ],
-      onDidDismiss: (e) =>
-        setRoleMessage(`Dismissed with role: ${e.detail.role}`),
     });
   };
 

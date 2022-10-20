@@ -31,16 +31,14 @@ const Current = () => {
     <IonPage>
       <IonContent fullscreen>
         <div className="page">
-          <IonHeader collapse="condense">
-          </IonHeader>
+          <IonHeader collapse="condense"></IonHeader>
           <IonCard className="card">
             <h1 className="title">{currentSong.Title}</h1>
             <div dangerouslySetInnerHTML={{ __html: currentSong.Lyrics }}></div>
             <IonCardSubtitle>- {currentSong.Author}</IonCardSubtitle>
           </IonCard>
-          <IonList hidden={noSong} className="button-center">
-            <IonButton onClick={handleShare}>Share</IonButton>
-          </IonList>
+
+          <IonButton onClick={handleShare}>Share</IonButton>
         </div>
       </IonContent>
     </IonPage>
