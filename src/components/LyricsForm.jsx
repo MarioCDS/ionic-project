@@ -26,7 +26,7 @@ export default function LyricsForm({ mode }) {
   const [lyrics, setLyrics] = useState("");
   const [initializing, setInitializing] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const { currentSong } = useAuth();
+  const { currentSong, currentUser } = useAuth();
   const [showCreateToast, setShowCreateToast] = useState(false);
   const [post, setPost] = useState({
     Title: "",
@@ -34,6 +34,12 @@ export default function LyricsForm({ mode }) {
     Lyrics: "",
   });
   const historyUse = useHistory();
+
+  useIonViewWillEnter(() => {
+    if (!currentUser) {
+      historyUse.push("/index");
+    }
+  }, [currentUser]);
 
   useIonViewWillEnter(() => {
     if (mode === "edit") {
