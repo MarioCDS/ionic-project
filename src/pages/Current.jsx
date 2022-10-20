@@ -32,9 +32,6 @@ const Current = () => {
       <IonContent fullscreen>
         <div className="page">
           <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">Current</IonTitle>
-            </IonToolbar>
           </IonHeader>
           <IonCard className="card">
             <h1 className="title">{currentSong.Title}</h1>
