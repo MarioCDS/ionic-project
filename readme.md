@@ -1,9 +1,9 @@
-**a short description of your app, concept and idea**
+**A short description of your app, concept and idea**
 
 Lyrific is an app designed primarily for use on mobile phones, both Android and iOS equally. It is an app that allows for the owner/admin to load lyrics for chosen songs, along with title and author, and destribute the app to other users who can then view the lyrics easily without having to log in.
 
 
-**a brief account of your design choices. Can be based on  *[Deep dive: Mobile design principles and best practices](https://uxdesign.cc/boost-ux-with-mobile-ux-design-principles-and-best-practices-907e4f9fdd5d),* [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/) and other relevant UX and UI resources from your teaching.**
+**A brief account of your design choices. Can be based on  *[Deep dive: Mobile design principles and best practices](https://uxdesign.cc/boost-ux-with-mobile-ux-design-principles-and-best-practices-907e4f9fdd5d),* [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/) and other relevant UX and UI resources from your teaching.**
 
 We have tried to design the app in a way to make it very usable on mobile phones. For instance by chosing to have a navigation tab bar at the bottom of the page, instead of the traditional website choice of a top navigation bar. This is because the bottom is a lot easier to reach with your fingers on a larger type of mobile phone. 
 We have also considered the "Recognition Rather Than Recall" principle from *Deep dive: Mobile design principles and best practices* , and added suitable icons in the tab buttons, but also with a label underneath, so the user will not be forced to guess what the icon means, if it isn't immediately obvious.
@@ -16,7 +16,7 @@ We have also added a few toast messages to the admin functions, such as logging 
 Also to avoid unintentional destructive behavior, we added a device specific confirmation dialog when trying to delete, to make sure the admin doesn't delete a song by accident. 
 
 
-**a description of the project structure and “Thinking in React"**
+**A description of the project structure and “Thinking in React"**
 The project is built in Ionic, of course, meaning that it has a lot of structural elements from the get-go. We're using the tab template, which has a tab bar permanently fixed to the bottom of all pages, which serves as main navigation for the site. The rest of the app/pages is wrapped in a React context componenet, which essentially keeps all the global variables and functions for the rest of the app. This is primarily login/logout functionality and a current user and selected song. This is used quite a lot to determine the current state of the app and transfer data locally without having to go online.
 We are using hooks quite a lot as well, primarily to render something or fetch songs when a page enters view. Also the custom hook useAuth() from the context to retrieve context data & functions.
 
@@ -25,7 +25,7 @@ In hindsight it would have made sense to create a lot more components, but it wa
 We also use states to make the UI update dynamically, such as displaying buttons as "pending" when sending data to the server.
 
 
-**a description of how to run the app in the browser and on a platforms (Android/iOS), including CLI commands**
+**A description of how to run the app in the browser and on a platforms (Android/iOS), including CLI commands**
 
 ```shell
 npm install --save @tinymce/tinymce-react 
