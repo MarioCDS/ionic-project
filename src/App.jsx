@@ -46,11 +46,12 @@ const App = () => (
   <IonApp>
     <AuthProvider>
       <IonReactRouter>
-        <IonToolbar
+        <IonToolbar color="light"
           style={{
             position: "fixed",
             bottom: "50px",
             background: "transparent",
+            
           }}
         >
           <IonLabel>
@@ -79,7 +80,7 @@ const App = () => (
             </Route>
           </IonRouterOutlet>
 
-          <IonTabBar style={{ marginTop: "60px" }} slot="bottom">
+          <IonTabBar slot="bottom">
             <IonTabButton tab="index" href="/index">
               <IonIcon icon={list} />
               <IonLabel>Index</IonLabel>

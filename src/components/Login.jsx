@@ -107,7 +107,12 @@ export default function Login() {
       } else {
         return (
           <IonIcon
-            style={{ marginLeft: "10px", cursor: "pointer" }}
+            style={{
+              marginLeft: "10px",
+              cursor: "pointer",
+              fontSize: "26px",
+              color: "#333",
+            }}
             onClick={() => {
               setDisplay(true);
             }}

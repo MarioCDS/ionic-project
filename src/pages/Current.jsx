@@ -38,9 +38,9 @@ const Current = () => {
             <div dangerouslySetInnerHTML={{ __html: currentSong.Lyrics }}></div>
             <IonCardSubtitle>- {currentSong.Author}</IonCardSubtitle>
           </IonCard>
-          <IonList hidden={noSong} className="button-center">
-            <IonButton onClick={handleShare}>Share</IonButton>
-          </IonList>
+            <IonButton hidden={noSong} onClick={handleShare} style={{
+              width: "80px"
+            }}>Share</IonButton>
         </div>
       </IonContent>
     </IonPage>
