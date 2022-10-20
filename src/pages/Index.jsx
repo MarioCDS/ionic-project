@@ -111,38 +111,37 @@ function Search() {
           placeholder="Search Songs"
           showClearButton="always"
           clearIcon={trashBin}
+          id="searchBar"
           debounce={1000}
           onIonChange={(ev) => handleChange(ev)}
         ></IonSearchbar>
       </IonHeader>
       <IonContent fullscreen>
-      <div className="page">
-        <IonCard className="card">
-          {filteredSongs.map((song) => (
-            <IonItem className="list" key={songNumber++}>
-              <div
-                style={{ cursor: "pointer" }}
-                onClick={() => handleSongClick(song)}
-              >
-                <h1>
-                  {songNumber} - {song.Title}
-                </h1>
-              </div>
-              {currentUser ? (
-                <>
-                  <IonButton onClick={() => handleSongEdit(song)}>
-                    Edit
-                  </IonButton>
-                  <IonButton onClick={() => handleDelete(song)}>
-                    Delete
-                  </IonButton>
-                </>
-              ) : null}
-            </IonItem>
-          ))}
-          <p>{handlerMessage}</p>
-          <p>{roleMessage}</p>
-        </IonCard>
+        <div className="page">
+          <IonCard className="card">
+            {filteredSongs.map((song) => (
+              <IonItem className="list" key={songNumber++}>
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleSongClick(song)}
+                >
+                  <h2>
+                    {songNumber} - {song.Title}
+                  </h2>
+                </div>
+                {currentUser ? (
+                  <>
+                    <IonButton onClick={() => handleSongEdit(song)}>
+                      Edit
+                    </IonButton>
+                    <IonButton onClick={() => handleDelete(song)}>
+                      Delete
+                    </IonButton>
+                  </>
+                ) : null}
+              </IonItem>
+            ))}
+          </IonCard>
         </div>
       </IonContent>
     </IonPage>

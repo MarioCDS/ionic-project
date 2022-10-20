@@ -31,7 +31,7 @@ export default function History() {
       <IonContent fullscreen>
         <div className="page">
           <IonCard className="card">
-            <IonCardTitle>Recently Viewed</IonCardTitle>
+            <IonCardTitle className="cardTitle">Recently Viewed</IonCardTitle>
             {history.length > 0 ? null : (
               <h2>
                 The history is currently empty, you can view lyrics in the
@@ -44,7 +44,7 @@ export default function History() {
                   style={{ cursor: "pointer" }}
                   onClick={() => handleSongClick(song)}
                 >
-                  <h1>{song.Title}</h1>
+                  <h3>{song.Title}</h3>
                 </div>
               </IonItem>
             ))}

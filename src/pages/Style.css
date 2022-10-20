@@ -1,3 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200;300;400;500&family=Nunito:wght@300&display=swap");
+
+html h1,
+h3,
+p,
+div {
+  font-family: "Cairo Play", cursive;
+  color: #333;
+}
+html h2 {
+  font-family: "Cairo Play", cursive;
+  font-weight: 400;
+}
+.cardTitle {
+  font-family: "Cairo Play", cursive;
+  font-size: 25px;
+  text-decoration: underline;
+  font-weight: 400;
+  color: #333;
+}
+
 .page {
   background: url(../../public/assets/music.png);
   min-height: 100%;
