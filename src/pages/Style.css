@@ -24,6 +24,8 @@ html h2 {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 20px 0 60px 0;
+  align-items: center;
 }
 
 .title {
@@ -39,6 +41,7 @@ p {
   border-radius: 10px;
   max-width: 800px;
   margin: auto;
+
 }
 
 .button-center {
@@ -50,11 +53,11 @@ p {
   margin: auto;
 }
 
-/* ------- Login bar ----------- */
-
-.loginBar {
-  background-color: aqua;
+.list-md {
+  padding: 0;
 }
+
+/* ------- Login bar ----------- */
 
 .loginInput {
   background-color: rgb(247, 247, 247);
