@@ -31,7 +31,7 @@ We also use states to make the UI update dynamically, such as displaying buttons
 npm install
 ionic serve
 
-//For deploying to android
+//For deploying to android (requires Android Studio)
 npm i @capacitor/core
 npm i -D @capacitor/cli
 npm i @capacitor/android
