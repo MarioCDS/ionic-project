@@ -1,4 +1,3 @@
-import { Redirect, Route } from "react-router-dom";
 import {
   IonApp,
   IonIcon,
@@ -8,14 +7,15 @@ import {
   IonTabButton,
   IonTabs,
   IonToolbar,
-  setupIonicReact,
+  setupIonicReact
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { musicalNotes, list, archive } from "ionicons/icons";
+import { archive, list, musicalNotes } from "ionicons/icons";
+import { Redirect, Route } from "react-router-dom";
 import Current from "./pages/Current";
-import Index from "./pages/Index";
-import History from "./pages/History";
 import Edit from "./pages/Edit";
+import History from "./pages/History";
+import Index from "./pages/Index";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -26,18 +26,18 @@ import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 
 /* Optional CSS utils that can be commented out */
-import "@ionic/react/css/padding.css";
+import "@ionic/react/css/display.css";
+import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/float-elements.css";
+import "@ionic/react/css/padding.css";
 import "@ionic/react/css/text-alignment.css";
 import "@ionic/react/css/text-transformation.css";
-import "@ionic/react/css/flex-utils.css";
-import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
 
-import AuthProvider from "./contexts/AuthContext";
 import Login from "./components/Login";
+import AuthProvider from "./contexts/AuthContext";
 import Create from "./pages/Create";
 
 setupIonicReact();

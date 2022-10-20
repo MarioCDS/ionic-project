@@ -3,7 +3,7 @@ import {
   IonHeader,
   IonPage,
   IonTitle,
-  IonToolbar,
+  IonToolbar
 } from "@ionic/react";
 import LyricsForm from "../components/LyricsForm";
 import "./Style.css";
@@ -11,7 +11,6 @@ import "./Style.css";
 export default function Create() {
   return (
     <IonPage>
-      <IonHeader></IonHeader>
       <IonContent fullscreen>
         <div className="page">
           <IonHeader collapse="condense">

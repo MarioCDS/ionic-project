@@ -1,8 +1,7 @@
 import { IonButton, IonIcon, IonInput, IonLabel, IonToast } from "@ionic/react";
 import { useRef, useState } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import { logOutOutline, logInOutline } from "ionicons/icons";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import "../pages/Style.css";
 
 export default function Login() {
@@ -109,7 +108,7 @@ export default function Login() {
           <IonButton
             onClick={handleLogout}
             type="submit"
-            style={{ maxWidth: "150px" }}
+            style={{ maxWidth: "150px", margin: "0 10px" }}
           >
             Logout
           </IonButton>

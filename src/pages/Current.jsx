@@ -1,17 +1,12 @@
 import {
   IonButton,
-  IonCard,
-  IonContent,
+  IonCard, IonCardSubtitle, IonContent,
   IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonList,
-  IonCardSubtitle,
+  IonPage
 } from "@ionic/react";
 
-import { useAuth } from "../contexts/AuthContext";
 import { Share } from "@capacitor/share";
+import { useAuth } from "../contexts/AuthContext";
 import "./Style.css";
 
 const Current = () => {
@@ -36,16 +31,18 @@ const Current = () => {
             <h1 className="title">{currentSong.Title}</h1>
             <div dangerouslySetInnerHTML={{ __html: currentSong.Lyrics }}></div>
             <IonCardSubtitle>- {currentSong.Author}</IonCardSubtitle>
-          </IonCard>
-          <IonButton
+            <IonButton
             hidden={noSong}
             onClick={handleShare}
             style={{
-              width: "80px",
+              marginTop: "12px",
+              maxWidth: "150px",
             }}
           >
             Share
           </IonButton>
+          </IonCard>
+        
         </div>
       </IonContent>
     </IonPage>

@@ -1,9 +1,6 @@
 import {
   IonCard,
-  IonCardTitle,
-  IonPage,
-  IonItem,
-  IonContent,
+  IonCardTitle, IonContent, IonItem, IonPage
 } from "@ionic/react";
 import { useAuth } from "../contexts/AuthContext";
 
