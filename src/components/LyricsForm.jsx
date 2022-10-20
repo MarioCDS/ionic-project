@@ -107,6 +107,10 @@ export default function LyricsForm({ mode }) {
     setSubmitting(false);
   }
 
+  function handleBack() {
+    historyUse.replace("/index");
+  }
+
   function loadPost() {
     if (title.length > 0) {
       if (author.length > 0) {
@@ -196,6 +200,7 @@ export default function LyricsForm({ mode }) {
           ? "Updating.."
           : "Update lyrics"}
       </IonButton>
+      <IonButton onClick={handleBack}>Back</IonButton>
       <IonToast
         isOpen={showCreateToast}
         onDidDismiss={() => setShowCreateToast(false)}
