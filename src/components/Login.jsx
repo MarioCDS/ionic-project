@@ -123,10 +123,10 @@ export default function Login() {
     } else {
       return (
         <>
-          <IonButton
+          <IonButton 
             onClick={handleLogout}
             type="submit"
-            style={{ maxWidth: "150px" }}
+            style={{ maxWidth: "150px", margin: "0 10px" }}
           >
             Logout
           </IonButton>

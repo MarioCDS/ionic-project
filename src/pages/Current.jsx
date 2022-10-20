@@ -31,16 +31,18 @@ const Current = () => {
             <h1 className="title">{currentSong.Title}</h1>
             <div dangerouslySetInnerHTML={{ __html: currentSong.Lyrics }}></div>
             <IonCardSubtitle>- {currentSong.Author}</IonCardSubtitle>
-          </IonCard>
-          <IonButton
+            <IonButton
             hidden={noSong}
             onClick={handleShare}
             style={{
-              width: "80px",
+              marginTop: "12px",
+              maxWidth: "150px",
             }}
           >
             Share
           </IonButton>
+          </IonCard>
+        
         </div>
       </IonContent>
     </IonPage>

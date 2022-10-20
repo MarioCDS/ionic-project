@@ -193,7 +193,7 @@ export default function LyricsForm({ mode }) {
           ? "Updating.."
           : "Update lyrics"}
       </IonButton>
-      <IonButton onClick={handleBack}>Back</IonButton>
+      <IonButton style={{margin: "0 10px"}} onClick={handleBack}>Back</IonButton>
       <IonToast
         isOpen={showCreateToast}
         onDidDismiss={() => setShowCreateToast(false)}

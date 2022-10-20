@@ -11,7 +11,6 @@ import "./Style.css";
 export default function Create() {
   return (
     <IonPage>
-      <IonHeader></IonHeader>
       <IonContent fullscreen>
         <div className="page">
           <IonHeader collapse="condense">

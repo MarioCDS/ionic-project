@@ -124,7 +124,7 @@ function Search() {
                 </div>
                 {currentUser ? (
                   <>
-                    <IonButton onClick={() => handleSongEdit(song)}>
+                    <IonButton style={{margin: "0 10px"}} onClick={() => handleSongEdit(song)}>
                       Edit
                     </IonButton>
                     <IonButton onClick={() => handleDelete(song)}>
