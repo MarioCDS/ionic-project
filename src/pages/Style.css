@@ -150,3 +150,9 @@ p {
     padding: 20px;
   }
 }
+
+.error {
+  color: red;
+  margin-left: 45%;
+  font-weight: bold;
+}

@@ -1,8 +1,11 @@
 import {
   IonButton,
-  IonCard, IonInput,
-  IonLabel, IonTitle,
-  IonToast, useIonViewWillEnter
+  IonCard,
+  IonInput,
+  IonLabel,
+  IonTitle,
+  IonToast,
+  useIonViewWillEnter,
 } from "@ionic/react";
 import { Editor } from "@tinymce/tinymce-react";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
@@ -48,7 +51,7 @@ export default function LyricsForm({ mode }) {
     } else if (initializing === false && mode === "edit") {
       handleEdit();
     }
-  }, [post]);
+  });
 
   //A toggle used to prevent other useEffect functions from running on the first render. This should always be the last useEffect.
   useEffect(() => {
@@ -193,7 +196,9 @@ export default function LyricsForm({ mode }) {
           ? "Updating.."
           : "Update lyrics"}
       </IonButton>
-      <IonButton style={{margin: "0 10px"}} onClick={handleBack}>Back</IonButton>
+      <IonButton style={{ margin: "0 10px" }} onClick={handleBack}>
+        Back
+      </IonButton>
       <IonToast
         isOpen={showCreateToast}
         onDidDismiss={() => setShowCreateToast(false)}

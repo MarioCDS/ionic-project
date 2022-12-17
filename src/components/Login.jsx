@@ -25,9 +25,8 @@ export default function Login() {
     try {
       setError("");
       setLoading(true);
-      console.log(
-        await login(emailRef.current.value, passwordRef.current.value)
-      );
+      console.log();
+      await login(emailRef.current.value, passwordRef.current.value);
     } catch {
       setError("Failed to log in");
     }
@@ -46,7 +45,7 @@ export default function Login() {
       if (display) {
         return (
           <>
-            {error ? <IonLabel>{error}</IonLabel> : null}
+            {error ? <IonLabel className="error">{error}</IonLabel> : null}
             <form onSubmit={handleSubmit} className="loginForm">
               <IonIcon
                 style={{

@@ -7,7 +7,7 @@ import {
   IonPage,
   IonSearchbar,
   useIonAlert,
-  useIonViewWillEnter
+  useIonViewWillEnter,
 } from "@ionic/react";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { search, trashBin } from "ionicons/icons";
@@ -124,7 +124,10 @@ function Search() {
                 </div>
                 {currentUser ? (
                   <>
-                    <IonButton style={{margin: "0 10px"}} onClick={() => handleSongEdit(song)}>
+                    <IonButton
+                      style={{ margin: "0 10px" }}
+                      onClick={() => handleSongEdit(song)}
+                    >
                       Edit
                     </IonButton>
                     <IonButton onClick={() => handleDelete(song)}>
