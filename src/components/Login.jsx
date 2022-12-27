@@ -4,8 +4,11 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { logOutOutline, logInOutline } from "ionicons/icons";
 import "../pages/Style.css";
+import { personAdd } from "ionicons/icons";
+import { useHistory } from "react-router";
 
 export default function Login() {
+  const historyUse = useHistory();
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login, logout, currentUser } = useAuth();
@@ -88,23 +91,40 @@ export default function Login() {
         );
       } else {
         return (
-          <IonIcon
-            style={{
-              marginLeft: "10px",
-              cursor: "pointer",
-              fontSize: "26px",
-              color: "#333",
-            }}
-            onClick={() => {
-              setDisplay(true);
-            }}
-            icon={logInOutline}
-          />
+          <div>
+            <IonIcon
+              style={{
+                marginLeft: "10px",
+                cursor: "pointer",
+                fontSize: "26px",
+                color: "#333",
+              }}
+              onClick={() => {
+                setDisplay(true);
+              }}
+              icon={logInOutline}
+            />
+            <NavLink to="/signup">
+              <IonIcon
+                style={{
+                  marginLeft: "50px",
+                  cursor: "pointer",
+                  fontSize: "26px",
+                  color: "#333",
+                }}
+                icon={personAdd}
+              />
+            </NavLink>
+          </div>
         );
       }
     } else {
       return (
-        <>
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
           <IonButton
             onClick={handleLogout}
             type="submit"
@@ -115,7 +135,7 @@ export default function Login() {
           <NavLink to="/create">
             <IonButton>Create</IonButton>
           </NavLink>
-        </>
+        </div>
       );
     }
   }

@@ -10,13 +10,7 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import {
-  shuffle,
-  archive,
-  list,
-  musicalNotes,
-  personAdd,
-} from "ionicons/icons";
+import { shuffle, archive, list, musicalNotes } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
 import Current from "./pages/Current";
 import Edit from "./pages/Edit";
@@ -110,10 +104,6 @@ const App = () => (
             <IonTabButton tab="shuffle" href="/shuffle">
               <IonIcon icon={shuffle} />
               <IonLabel>Shuffle</IonLabel>
-            </IonTabButton>
-            <IonTabButton tab="signup" href="/signup">
-              <IonIcon icon={personAdd} />
-              <IonLabel>Sign up</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>

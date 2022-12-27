@@ -54,11 +54,11 @@ export default function LyricsForm({ mode }) {
     } else if (initializing === false && mode === "edit") {
       handleEdit();
     }
-  });
+  }, [post]);
 
   //A toggle used to prevent other useEffect functions from running on the first render. This should always be the last useEffect.
   useEffect(() => {
-    setInitializing(true);
+    setInitializing(false);
   }, []);
 
   //reset the form and return to the index page.
@@ -130,7 +130,6 @@ export default function LyricsForm({ mode }) {
     } else {
       alert("Please enter a title");
     }
-    setInitializing(false);
   }
 
   return (
