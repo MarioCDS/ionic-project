@@ -4,7 +4,6 @@ import {
   IonHeader,
   IonTitle,
   IonInput,
-  useIonViewWillEnter,
 } from "@ionic/react";
 import "./Style.css";
 
@@ -12,7 +11,6 @@ import { useRef } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function Signup() {
-  useIonViewWillEnter(() => {}, []);
   const emailRef = useRef();
   const passwordRef = useRef();
   const { signUp } = useAuth();
