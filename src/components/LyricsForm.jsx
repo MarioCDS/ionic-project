@@ -42,6 +42,9 @@ export default function LyricsForm({ mode }) {
       setTitle(currentSong.Title);
       setLyrics(currentSong.Lyrics);
       setAuthor(currentSong.Author);
+      if (currentSong.CreatedBy !== currentUser.uid) {
+        historyUse.push("/index");
+      }
     }
   }, [currentSong]);
 
@@ -55,7 +58,7 @@ export default function LyricsForm({ mode }) {
 
   //A toggle used to prevent other useEffect functions from running on the first render. This should always be the last useEffect.
   useEffect(() => {
-    setInitializing(false);
+    setInitializing(true);
   }, []);
 
   //reset the form and return to the index page.
@@ -77,6 +80,7 @@ export default function LyricsForm({ mode }) {
         Title: post.Title,
         Author: post.Author,
         Lyrics: post.Lyrics,
+        CreatedBy: currentUser.uid,
       });
     } catch (error) {
       console.log(error);
@@ -94,6 +98,7 @@ export default function LyricsForm({ mode }) {
         Title: post.Title,
         Lyrics: post.Lyrics,
         Author: post.Author,
+        CreatedBy: currentUser.uid,
       });
     } catch (error) {
       console.log(error);
@@ -125,6 +130,7 @@ export default function LyricsForm({ mode }) {
     } else {
       alert("Please enter a title");
     }
+    setInitializing(false);
   }
 
   return (

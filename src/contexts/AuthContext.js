@@ -18,7 +18,7 @@ export default function AuthProvider({ children }) {
     Author: "",
   });
 
-  function signUp(email, password) {
+  async function signUp(email, password) {
     return auth
       .createUserWithEmailAndPassword(email, password)
       .catch((error) => {

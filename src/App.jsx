@@ -10,13 +10,20 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { shuffle, archive, list, musicalNotes } from "ionicons/icons";
+import {
+  shuffle,
+  archive,
+  list,
+  musicalNotes,
+  personAdd,
+} from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
 import Current from "./pages/Current";
 import Edit from "./pages/Edit";
 import History from "./pages/History";
 import Index from "./pages/Index";
-import Random from "./pages/Shuffle";
+import Shuffle from "./pages/Shuffle";
+import Signup from "./pages/Signup";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -80,7 +87,10 @@ const App = () => (
               <Edit />
             </Route>
             <Route exact path="/shuffle">
-              <Random />
+              <Shuffle />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
             </Route>
           </IonRouterOutlet>
 
@@ -100,6 +110,10 @@ const App = () => (
             <IonTabButton tab="shuffle" href="/shuffle">
               <IonIcon icon={shuffle} />
               <IonLabel>Shuffle</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="signup" href="/signup">
+              <IonIcon icon={personAdd} />
+              <IonLabel>Sign up</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>

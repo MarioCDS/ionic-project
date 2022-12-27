@@ -122,7 +122,7 @@ function Search() {
                     {songNumber} - {song.Title}
                   </h2>
                 </div>
-                {currentUser ? (
+                {currentUser && currentUser.uid === song.CreatedBy ? (
                   <>
                     <IonButton
                       style={{ margin: "0 10px" }}
