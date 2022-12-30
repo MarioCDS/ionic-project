@@ -59,7 +59,7 @@ export default function LyricsForm({ mode }) {
   //A toggle used to prevent other useEffect functions from running on the first render. This should always be the last useEffect.
   useEffect(() => {
     setInitializing(false);
-  }, []);
+  }, [post]);
 
   //reset the form and return to the index page.
   function resetForm() {
