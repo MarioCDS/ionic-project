@@ -94,7 +94,7 @@ export default function Login() {
           <div>
             <IonIcon
               style={{
-                marginLeft: "10px",
+                marginLeft: "20px",
                 cursor: "pointer",
                 fontSize: "26px",
                 color: "#333",
@@ -107,7 +107,7 @@ export default function Login() {
             <NavLink to="/signup">
               <IonIcon
                 style={{
-                  marginLeft: "50px",
+                  marginLeft: "55px",
                   cursor: "pointer",
                   fontSize: "26px",
                   color: "#333",
@@ -115,6 +115,23 @@ export default function Login() {
                 icon={personAdd}
               />
             </NavLink>
+            <br />
+            <IonLabel
+              style={{
+                marginLeft: "15px",
+                color: "#801f83",
+              }}
+            >
+              Login
+            </IonLabel>
+            <IonLabel
+              style={{
+                marginLeft: "35px",
+                color: "#801f83",
+              }}
+            >
+              Sign up
+            </IonLabel>
           </div>
         );
       }
